@@ -1,10 +1,9 @@
 package com.basicsandroid.recyclerviewproject
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.basicsandroid.recyclerviewproject.Adapter.FoodAdapter
 import com.basicsandroid.recyclerviewproject.Modal.Food
 import com.basicsandroid.recyclerviewproject.databinding.ActivityMainBinding
 
@@ -24,5 +23,14 @@ class MainActivity : AppCompatActivity() {
             Food("Burger",230.00,300.0,R.drawable.burger),
             Food("Popcorn",280.0,330.0,R.drawable.popcorn)
             )
+
+        val layoutManager=LinearLayoutManager(this)
+        binding.rv.layoutManager=layoutManager
+
+        val adapter=FoodAdapter()
+        adapter.setDataSource(foodList)
+        binding.rv.adapter=adapter
+
     }
+
 }
